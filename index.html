@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Mechanical engineering portfolio of Ozan Bulut Gürescier — NYU Tandon student showcasing robotics, motorsports, and mechanical design projects.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpolygon points='32,4 58,18 58,46 32,60 6,46 6,18' fill='%238900E1'/%3E%3Ccircle cx='32' cy='32' r='14' fill='%23F2F2F2'/%3E%3C/svg%3E">
+<title>Ozan Bulut Gürescier — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F2F2F2;
+    --card:#FFFFFF;
+    --text:#232323;
+    --text-dim:#5b5b5b;
+    --title:#8900E1;
+    --border:#E0E0E0;
+  }
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter', -apple-system, sans-serif;
+    line-height:1.65;
+  }
+
+  /* ---- Hero ---- */
+  .hero{
+    position:relative;
+    width:100%;
+    height:min(60vh, 480px);
+    min-height:280px;
+    overflow:hidden;
+    background:#e6e6e6;
+    display:flex;
+    align-items:flex-end;
+  }
+  .hero-bg{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center;
+    z-index:0;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:1;
+    background:linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.15) 45%, rgba(0,0,0,0) 70%);
+  }
+  .hero-toggle{
+    position:absolute;
+    top:16px;
+    right:16px;
+    z-index:2;
+    display:flex;
+    gap:4px;
+    background:rgba(0,0,0,0.4);
+    backdrop-filter:blur(6px);
+    border-radius:999px;
+    padding:4px;
+  }
+  .toggle-btn{
+    border:none;
+    background:transparent;
+    color:#fff;
+    font-family:'Inter', sans-serif;
+    font-size:12px;
+    font-weight:600;
+    padding:7px 16px;
+    border-radius:999px;
+    cursor:pointer;
+    opacity:0.65;
+    transition:all 0.15s ease;
+  }
+  .toggle-btn:hover{ opacity:1; }
+  .toggle-btn.active{
+    background:var(--title);
+    opacity:1;
+  }
+  .hero-text{
+    position:relative;
+    z-index:1;
+    padding:32px 6vw;
+  }
+  .hero-name{
+    color:#FFFFFF;
+    font-weight:800;
+    font-size:clamp(28px, 5vw, 52px);
+    letter-spacing:0.01em;
+    margin:0;
+    line-height:1.1;
+    text-shadow:0 2px 12px rgba(0,0,0,0.35);
+  }
+  .hero-subtitle{
+    color:#FFFFFF;
+    font-weight:500;
+    font-size:clamp(12px, 1.4vw, 15px);
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    margin:8px 0 0 0;
+    opacity:0.85;
+    text-shadow:0 2px 8px rgba(0,0,0,0.35);
+  }
+
+  /* ---- Layout ---- */
+  .container{
+    max-width:880px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  section{
+    margin-top:64px;
+    margin-bottom:64px;
+  }
+
+  .section-title{
+    font-weight:800;
+    font-size:32px;
+    color:var(--title);
+    margin:0 0 20px 0;
+  }
+
+  #about p{
+    color:var(--text-dim);
+    font-size:17px;
+    max-width:65ch;
+  }
+  .about-contact{
+    font-size:15px !important;
+    margin-top:14px !important;
+  }
+  .about-contact a{
+    color:var(--title);
+    text-decoration:none;
+    font-weight:600;
+  }
+  .about-contact a:hover{
+    text-decoration:underline;
+  }
+
+  /* ---- Projects ---- */
+  .project{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:10px;
+    overflow:hidden;
+    margin-bottom:36px;
+  }
+  .project-title{
+    font-weight:700;
+    font-size:20px;
+    color:var(--title);
+    margin:0;
+    padding:20px 24px 0 24px;
+  }
+  .project-img{
+    display:block;
+    width:100%;
+    max-height:460px;
+    object-fit:contain;
+    background:#FFFFFF;
+    margin-top:18px;
+  }
+  .project-img.landscape{
+    height:420px;
+    max-height:420px;
+    object-fit:cover;
+  }
+  .project-img.secondary{
+    margin-top:24px;
+  }
+  .project-text{
+    padding:20px 24px 24px 24px;
+  }
+  .project-text:first-of-type{
+    padding-top:20px;
+  }
+  .project ul{
+    margin:0;
+    padding-left:20px;
+    color:var(--text-dim);
+  }
+  .project li{
+    margin-bottom:8px;
+    font-size:15.5px;
+  }
+  .project li:last-child{ margin-bottom:0; }
+
+  footer{
+    text-align:center;
+    padding:40px 24px 60px 24px;
+    color:var(--text-dim);
+    font-size:13px;
+  }
+  footer a{ color:var(--title); text-decoration:none; }
+</style>
+</head>
+<body>
+
+  <div class="hero">
+    <img id="hero-img" class="hero-bg" src="images/hero-external.png" alt="Chassis CAD render">
+    <div class="hero-toggle">
+      <button class="toggle-btn active" data-src="images/hero-external.png" onclick="setHero(this)">External View</button>
+      <button class="toggle-btn" data-src="images/hero-section.png" onclick="setHero(this)">Section View</button>
+    </div>
+    <div class="hero-text">
+      <h1 class="hero-name">OZAN BULUT GÜREŞCIER</h1>
+      <p class="hero-subtitle">Mechanical Engineering Portfolio</p>
+    </div>
+  </div>
+
+  <script>
+    function setHero(btn){
+      document.getElementById('hero-img').src = btn.getAttribute('data-src');
+      document.querySelectorAll('.toggle-btn').forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+    }
+  </script>
+
+  <div class="container">
+
+    <section id="about">
+      <h2 class="section-title">About Me</h2>
+      <p>Hello, I am Ozan Bulut Güreşcier, and I am studying Mechanical Engineering with the Technology, Management and Design minor at NYU Tandon School of Engineering. As an engineering student, I am always interested in design challenges that push me to use my engineering knowledge and find creative solutions to different problems. In this portfolio, I will be showcasing various projects I have taken part in throughout my engineering student life with descriptive images, project explanations, challenges, how I overcame those challenges and results of each project.</p>
+      <p class="about-contact"><a href="mailto:ozangurescier@nyu.edu">ozangurescier@nyu.edu</a> &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/ozangurescier/">LinkedIn</a></p>
+    </section>
+
+    <section id="projects">
+      <h2 class="section-title">Projects</h2>
+
+      <!-- 2023–2024 Robotic Design Team -->
+      <div class="project">
+        <h3 class="project-title">2023 – 2024 Robotic Design Team</h3>
+        <img class="project-img landscape" src="images/rdt-2023-2024-01.png" alt="2023–2024 Robotic Design Team rover render">
+        <div class="project-text">
+          <ul>
+            <li>Autonomous lunar which has an objective to collect lunar regolith and deposit autonomously.</li>
+            <li>I worked on the deposition system and designed the box that holds the regolith.</li>
+            <li>I used Onshape and SolidWorks to design and do FEA tests on the box.</li>
+          </ul>
+        </div>
+        <img class="project-img secondary" src="images/rdt-2023-2024-02.jpg" alt="2023–2024 rover on the beach">
+        <div class="project-text">
+          <ul>
+            <li>The main challenge was designing a lightweight box that could hold a large volume of material.</li>
+            <li>The system could withstand the load of the regolith and move up to deposit the material.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 2024–2025 Robotic Design Team -->
+      <div class="project">
+        <h3 class="project-title">2024 – 2025 Robotic Design Team</h3>
+        <img class="project-img landscape" src="images/rdt-2024-2025-01.png" alt="2024–2025 Robotic Design Team rover render">
+        <div class="project-text">
+          <ul>
+            <li>Main goal was to make a smaller robot than 2023 – 2024 robot, while achieving excavation and deposition autonomy.</li>
+            <li>I worked on integrating every sub-system, which are excavation, deposition, electrical and locomotion.</li>
+            <li>I lead the team that designed the chassis, gearbox cover, electrical box and every sub-system connection.</li>
+          </ul>
+        </div>
+        <img class="project-img secondary landscape" src="images/rdt-2024-2025-02.jpeg" alt="2024–2025 rover on the beach">
+        <div class="project-text">
+          <ul>
+            <li>The main challenge was decreasing the size of the robot while trying a new conveyor belt deposition system.</li>
+            <li>The rover was able to excavate and deposit and mechanical systems were functional.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 2025–2026 Robotic Design Team -->
+      <div class="project">
+        <h3 class="project-title">2025 – 2026 Robotic Design Team</h3>
+        <img class="project-img landscape" src="images/rdt-2025-2026-01.png" alt="2025–2026 Robotic Design Team rover render, view 1">
+        <div class="project-text">
+          <ul>
+            <li>Main goal was to make a lighter robot than 2024 – 2025 robot with full autonomy.</li>
+            <li>I worked on integrating every sub-system, which are excavation, deposition, electrical and locomotion.</li>
+            <li>I lead the team that designed the chassis, gearbox cover, electrical box and every sub-system connection.</li>
+            <li>The main challenge is reducing the weight of the robot to half its value from previous years.</li>
+          </ul>
+        </div>
+        <img class="project-img secondary" src="images/rdt-2025-2026-02.jpeg" alt="2025–2026 Robotic Design Team rover render, view 2">
+        <div class="project-text">
+          <ul>
+            <li>We achieved our goal of reducing the weight of the robot by achieving a mass of 27.5 kg, the lightest robot in the competition.</li>
+            <li>We got 13th place in the competition mining scores, notably after our excavator failed, where we were 7th before the failure.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- NYU Motorsports -->
+      <div class="project">
+        <h3 class="project-title">NYU Motorsports</h3>
+        <img class="project-img" src="images/motorsports-01.png" alt="NYU Motorsports Baja pedal CAD render">
+        <div class="project-text">
+          <ul>
+            <li>NYU Motorsports Baja Team competes in Baja SAE competitions.</li>
+            <li>I was on the brakes team, responsible for designing and manufacturing brake systems as well as the pedals of the car.</li>
+          </ul>
+        </div>
+        <img class="project-img secondary" src="images/motorsports-02.png" alt="NYU Motorsports Baja car">
+        <div class="project-text">
+          <ul>
+            <li>I designed the accelerator pedal, and the pedal stop by utilizing Finite Element Analysis.</li>
+            <li>I took part in working on the brakes of the car with bleeding the brake lines and testing the system.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Posture Checker -->
+      <div class="project">
+        <h3 class="project-title">Posture Checker</h3>
+        <img class="project-img" src="images/posture-checker-01.jpg" alt="Posture Checker device electronics">
+        <div class="project-text">
+          <ul>
+            <li>The goal of this project was to make a device that warns the user when they have a bad posture by using notifications.</li>
+            <li>A gyroscope sensor and Arduino were utilized to measure the angle of someone's posture.</li>
+          </ul>
+        </div>
+        <img class="project-img secondary" src="images/posture-checker-02.jpeg" alt="Posture Checker worn as a backpack">
+        <div class="project-text">
+          <ul>
+            <li>As a wearable device, the biggest challenge was to make it comfortable to wear for extended periods without taking away from convenience.</li>
+            <li>Fusion 360 was used to design the device, and the casing was 3D printed. The cloth and padding were sewed and glued to complete the product.</li>
+            <li>The device functioned as intended, would send notifications after 20 seconds of bad posture, and had a cooldown to avoid alerting unnecessary.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- FRC 2022–2023 -->
+      <div class="project">
+        <h3 class="project-title">FRC 2022 – 2023</h3>
+        <img class="project-img landscape" src="images/frc-2022-2023-01.jpg" alt="FRC 2022–2023 robot">
+        <div class="project-text">
+          <ul>
+            <li>The objective was to build a robot that can shoot a ball into a basket and perform a climb using an elevator system.</li>
+            <li>I designed the intake and the shooter mechanisms of the robot using Fusion 360.</li>
+            <li>The main challenge during this competition was trying to achieve a competitive robot with a large budget constraint.</li>
+            <li>A highlight of the competition was the innovative elevator locking mechanism that no team had done, and it earned the creativity award.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- FRC 2023–2024 -->
+      <div class="project">
+        <h3 class="project-title">FRC 2023 – 2024</h3>
+        <img class="project-img landscape" src="images/frc-2023-2024-01.jpg" alt="FRC 2023–2024 swerve drive robot">
+        <div class="project-text">
+          <ul>
+            <li>The objective of this robot was to pick up cube and cone shaped objects from either the ground, or a counter, and place them to their respective slots during the competition.</li>
+            <li>This year, the team took on a new challenge of using a swerve drive system, where I designed the chassis and electrical connection surfaces using Fusion 360.</li>
+            <li>The robot was very stable and fast as intended, therefore the swerve system integration was successful.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Airfoil Experiment -->
+      <div class="project">
+        <h3 class="project-title">Airfoil Experiment</h3>
+        <img class="project-img landscape" src="images/airfoil-01.jpg" alt="Airfoil wind tunnel experiment setup">
+        <div class="project-text">
+          <ul>
+            <li>This experiment was conducted as a part of the extended essay in physics of the IB curriculum.</li>
+            <li>Aim of the experiment was to understand the effect of the width and the angle of attack of an inverted airfoil on generated downforce.</li>
+            <li>Selig S1223 airfoil was selected for its high lift coefficient from NACA airfoils. The wing was 3D printed in sections to allow for width variation.</li>
+            <li>A wind tunnel with a flow straightener to achieve a more laminar flow was constructed.</li>
+            <li>Experiment results were as expected, where a wider airfoil resulted in more downforce, and the optimal angle of attack was approximately 15 degrees for maximum downforce.</li>
+          </ul>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <footer>
+    Ozan Bulut Gürescier — <a href="mailto:ozangurescier@nyu.edu">ozangurescier@nyu.edu</a> · <a href="https://www.linkedin.com/in/ozangurescier/">LinkedIn</a>
+  </footer>
+
+</body>
+</html>
