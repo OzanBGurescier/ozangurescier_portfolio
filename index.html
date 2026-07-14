@@ -145,6 +145,19 @@
   .about-contact a:hover{
     text-decoration:underline;
   }
+  .resume-btn{
+    display:inline-block;
+    background:var(--title);
+    color:#FFFFFF !important;
+    padding:6px 16px;
+    border-radius:999px;
+    font-weight:600;
+    text-decoration:none !important;
+    transition:opacity 0.15s ease;
+  }
+  .resume-btn:hover{
+    opacity:0.85;
+  }
 
   /* ---- Projects ---- */
   .project{
@@ -276,6 +289,12 @@
   .year-panel-image.vertical{
     flex:0 0 260px;
     min-height:340px;
+  }
+  .even-split{
+    flex:1 1 50% !important;
+  }
+  .year-panel-image.even-split{
+    border-left:1px solid rgba(0,0,0,0.12);
   }
   .frc-header{
     background:
@@ -503,7 +522,7 @@
     <section id="about">
       <h2 class="section-title">About Me</h2>
       <p>Hello, I am Ozan Bulut Güreşcier, and I am studying Mechanical Engineering with the Technology, Management and Design minor at NYU Tandon School of Engineering. As an engineering student, I am always interested in design challenges that push me to use my engineering knowledge and find creative solutions to different problems. In this portfolio, I will be showcasing various projects I have taken part in throughout my engineering student life with descriptive images, project explanations, challenges, how I overcame those challenges and results of each project.</p>
-      <p class="about-contact"><a href="mailto:ozangurescier@nyu.edu">ozangurescier@nyu.edu</a> &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/ozangurescier/">LinkedIn</a></p>
+      <p class="about-contact"><a href="mailto:ozangurescier@nyu.edu">ozangurescier@nyu.edu</a> &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/ozangurescier/">LinkedIn</a> &nbsp;·&nbsp; <a href="resume.pdf" download class="resume-btn">Download my resume</a></p>
     </section>
 
     <section id="projects">
@@ -615,7 +634,7 @@
         <div class="group-header frc-header">
           <h3 class="group-title">FIRST Robotics Competition</h3>
           <p>FIRST Robotics Competition (FRC) is a robotics competition where teams from highschools around the world come together to compete in themed games every year. The competition requires teams to build industrial sized robots with various mechanisms to complete tasks.</p>
-          <p class="spaced">I joined the team as a mechanical team member in highschool where I learned how to design and build mechanical components by hand and by using software. Becoming the mechanical lead of team opened up further learning opportunities as I had to also mentor new members with their learning, as well as managing budget and purchasing for the mechanical team, which all proved to be useful in my enrollment in RDT and other future projects.</p>
+          <p class="spaced">I joined the team as a mechanical team member in highschool where I learned how to design and build mechanical components by hand and by using software. Becoming the mechanical lead of the team opened up further learning opportunities as I had to also mentor new members with their learning, as well as managing budget and purchasing for the mechanical team, which all proved to be useful in my enrollment in RDT and other future projects.</p>
         </div>
 
         <div class="year-tabs">
@@ -630,7 +649,7 @@
         </div>
 
         <div class="year-panel open" id="panel-frc2022">
-          <div class="year-panel-text">
+          <div class="year-panel-text even-split">
             <ul>
               <li>The objective was to build a robot that can shoot a ball into a basket and perform a climb using an elevator system.</li>
               <li>I designed the intake and the shooter mechanisms of the robot using Fusion 360.</li>
@@ -638,20 +657,20 @@
               <li>A highlight of the competition was the innovative elevator locking mechanism that no team had done, and it earned the creativity award.</li>
             </ul>
           </div>
-          <div class="year-panel-image">
+          <div class="year-panel-image even-split">
             <img src="images/frc-2022-2023-01.jpg" alt="FRC 2022–2023 robot">
           </div>
         </div>
 
         <div class="year-panel" id="panel-frc2023">
-          <div class="year-panel-text">
+          <div class="year-panel-text even-split">
             <ul>
               <li>The objective of this robot was to pick up cube and cone shaped objects from either the ground, or a counter, and place them to their respective slots during the competition.</li>
               <li>This year, the team took on a new challenge of using a swerve drive system, where I designed the chassis and electrical connection surfaces using Fusion 360.</li>
               <li>The robot was very stable and fast as intended, therefore the swerve system integration was successful.</li>
             </ul>
           </div>
-          <div class="year-panel-image">
+          <div class="year-panel-image even-split">
             <img src="images/frc-2023-2024-01.jpg" alt="FRC 2023–2024 swerve drive robot">
           </div>
         </div>
